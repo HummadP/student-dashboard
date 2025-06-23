@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://student-dashboard-api-en5a.onrender.com",
+    origin: "https://student-dashboard-1osw.onrender.com",
     credentials: true,
   })
 );
