@@ -18,9 +18,7 @@ const Todo = () => {
     const fetchTasks = async () => {
       try {
         const res = await axios.get(
-          `${
-            import.meta.env.VITE_API_URL || "http://localhost:5000"
-          }/api/tasks`,
+          `${import.meta.env.API_URL || "http://localhost:5000"}/api/tasks`,
           config
         );
         setTasks(res.data);
@@ -39,7 +37,7 @@ const Todo = () => {
       if (editId) {
         const res = await axios.put(
           `${
-            import.meta.env.VITE_API_URL || "http://localhost:5000"
+            import.meta.env.API_URL || "http://localhost:5000"
           }/api/tasks/${editId}`,
           { text },
           config
@@ -50,9 +48,7 @@ const Todo = () => {
         setEditId(null);
       } else {
         const res = await axios.post(
-          `${
-            import.meta.env.VITE_API_URL || "http://localhost:5000"
-          }/api/tasks`,
+          `${import.meta.env.API_URL || "http://localhost:5000"}/api/tasks`,
           { text },
           config
         );
@@ -68,7 +64,7 @@ const Todo = () => {
     try {
       const res = await axios.patch(
         `${
-          import.meta.env.VITE_API_URL || "http://localhost:5000"
+          import.meta.env.API_URL || "http://localhost:5000"
         }/api/tasks/${id}/toggle`,
         {},
         config
@@ -84,9 +80,7 @@ const Todo = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `${
-          import.meta.env.VITE_API_URL || "http://localhost:5000"
-        }/api/tasks/${id}`,
+        `${import.meta.env.API_URL || "http://localhost:5000"}/api/tasks/${id}`,
         config
       );
       setTasks((prev) => prev.filter((task) => task._id !== id));
