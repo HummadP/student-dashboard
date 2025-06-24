@@ -15,7 +15,7 @@ const Flashcards = () => {
       try {
         const res = await axios.get(
           `${
-            import.meta.env.API_URL || "http://localhost:5000"
+            import.meta.env.VITE_API_URL || "http://localhost:5000"
           }/api/flashcards`,
           {
             headers: {
@@ -35,7 +35,9 @@ const Flashcards = () => {
     if (!front.trim() || !back.trim()) return;
     try {
       const res = await axios.post(
-        `${import.meta.env.API_URL || "http://localhost:5000"}/api/flashcards`,
+        `${
+          import.meta.env.VITE_API_URL || "http://localhost:5000"
+        }/api/flashcards`,
         { front, back },
         {
           headers: {
@@ -55,7 +57,7 @@ const Flashcards = () => {
     try {
       await axios.delete(
         `${
-          import.meta.env.API_URL || "http://localhost:5000"
+          import.meta.env.VITE_API_URL || "http://localhost:5000"
         }/api/flashcards/${id}`,
         {
           headers: {

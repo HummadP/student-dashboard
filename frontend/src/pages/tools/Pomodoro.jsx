@@ -56,7 +56,7 @@ const Pomodoro = () => {
       const token = localStorage.getItem("token");
       await axios.delete(
         `${
-          import.meta.env.API_URL || "http://localhost:5000"
+          import.meta.env.VITE_API_URL || "http://localhost:5000"
         }/api/pomodoro/clear`,
         {
           headers: {
@@ -92,7 +92,9 @@ const Pomodoro = () => {
       try {
         const token = localStorage.getItem("token");
         await axios.post(
-          `${import.meta.env.API_URL || "http://localhost:5000"}/api/pomodoro`,
+          `${
+            import.meta.env.VITE_API_URL || "http://localhost:5000"
+          }/api/pomodoro`,
           { focusMinutes: 25 },
           {
             headers: {
@@ -113,7 +115,7 @@ const Pomodoro = () => {
       const token = localStorage.getItem("token");
       const res = await axios.get(
         `${
-          import.meta.env.API_URL || "http://localhost:5000"
+          import.meta.env.VITE_API_URL || "http://localhost:5000"
         }/api/pomodoro/total`,
         {
           headers: {
